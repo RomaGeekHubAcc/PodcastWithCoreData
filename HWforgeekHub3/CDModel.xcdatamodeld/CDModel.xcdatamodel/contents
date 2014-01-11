@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="11G63b" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CDAudioFile" representedClassName="CDAudioFile" syncable="YES">
+        <attribute name="audioFileURL" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="podcastItem" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CDPodcastItem" inverseName="audioFiles" inverseEntity="CDPodcastItem" syncable="YES"/>
+    </entity>
+    <entity name="CDPodcast" representedClassName="CDPodcast" syncable="YES">
+        <attribute name="link" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="podcastDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="podcastImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="podcastTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="podcastItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDPodcastItem" inverseName="podcast" inverseEntity="CDPodcastItem" syncable="YES"/>
+    </entity>
+    <entity name="CDPodcastItem" representedClassName="CDPodcastItem" syncable="YES">
+        <attribute name="guid" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="itemAuthhor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemPubDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="itemTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="audioFiles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDAudioFile" inverseName="podcastItem" inverseEntity="CDAudioFile" syncable="YES"/>
+        <relationship name="podcast" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CDPodcast" inverseName="podcastItems" inverseEntity="CDPodcast" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CDAudioFile" positionX="-981" positionY="360" width="128" height="75"/>
+        <element name="CDPodcast" positionX="-1307" positionY="180" width="128" height="120"/>
+        <element name="CDPodcastItem" positionX="-1143" positionY="234" width="128" height="165"/>
+    </elements>
+</model>
