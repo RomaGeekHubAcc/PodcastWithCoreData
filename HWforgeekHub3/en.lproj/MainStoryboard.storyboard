@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hkT-kj-cx0">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Podcast ItemsVC-->
+        <scene sceneID="JWF-yo-5qd">
+            <objects>
+                <viewController storyboardIdentifier="PodcastItemsVC" id="XJr-Hj-BhT" customClass="PodcastItemsVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dMy-Lx-3GW">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="124" sectionHeaderHeight="22" sectionFooterHeight="22" id="0p8-al-wZa">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell" rowHeight="124" id="6AY-kj-AFm" customClass="PodcastItemCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="124"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="123"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="ak5-uK-g96">
+                                                    <rect key="frame" x="9" y="12" width="100" height="100"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cMP-rk-VZG">
+                                                    <rect key="frame" x="120" y="12" width="196" height="72"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Updated" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0h8-39-xbV">
+                                                    <rect key="frame" x="120" y="89" width="196" height="32"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="imgView" destination="ak5-uK-g96" id="BUc-aN-GYO"/>
+                                            <outlet property="titleOutlet" destination="cMP-rk-VZG" id="7mf-RP-OYu"/>
+                                            <outlet property="updatedOutlet" destination="0h8-39-xbV" id="oJa-NA-jiR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="XJr-Hj-BhT" id="aja-Yr-z2a"/>
+                                    <outlet property="delegate" destination="XJr-Hj-BhT" id="pPK-YR-i3X"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" id="X0w-pw-C7H">
+                                <rect key="frame" x="142" y="304" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="myG-sP-ewy"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="X0w-pw-C7H" id="FJb-h2-Osl"/>
+                        <outlet property="tableView" destination="0p8-al-wZa" id="U7D-sx-TfD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TTo-Mg-WgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="490" y="43"/>
+        </scene>
+        <!--DetailVC-->
+        <scene sceneID="5">
+            <objects>
+                <viewController storyboardIdentifier="DetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2" customClass="DetailVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Kct-eF-zHm">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vdB-vW-8Sy">
+                                        <rect key="frame" x="10" y="14" width="298" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Author: ..." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cbB-eh-bv3">
+                                        <rect key="frame" x="144" y="93" width="164" height="94"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="updated" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X5r-Vq-guD">
+                                        <rect key="frame" x="34" y="218" width="274" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="wSO-Hv-iri">
+                                        <rect key="frame" x="10" y="83" width="126" height="126"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="VgJ-0g-v1t">
+                                        <rect key="frame" x="10" y="247" width="298" height="171"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Q5j-Tm-yrb">
+                                        <rect key="frame" x="236" y="485" width="72" height="44"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Player">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="player:" destination="2" eventType="touchUpInside" id="fTe-zy-wpB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="authorLabel" destination="cbB-eh-bv3" id="ua0-YU-221"/>
+                        <outlet property="imageView" destination="wSO-Hv-iri" id="iYW-f3-AGx"/>
+                        <outlet property="playerLabel" destination="Q5j-Tm-yrb" id="Cea-hI-EvO"/>
+                        <outlet property="scrollView" destination="Kct-eF-zHm" id="QTV-Fr-WE3"/>
+                        <outlet property="textViewDescription" destination="VgJ-0g-v1t" id="BJh-dP-iEB"/>
+                        <outlet property="titleLabel" destination="vdB-vW-8Sy" id="o2x-D5-aOO"/>
+                        <outlet property="updatedLabel" destination="X5r-Vq-guD" id="l91-XY-c0Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="871" y="42"/>
+        </scene>
+        <!--DownloadVC-->
+        <scene sceneID="lnj-Hx-7zA">
+            <objects>
+                <viewController storyboardIdentifier="DownloadVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="igW-2S-jH0" customClass="DownloadVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f1T-9H-MKl">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RgX-G4-gNU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1757" y="58"/>
+        </scene>
+        <!--Podcasts PlayerVC-->
+        <scene sceneID="lkU-vg-Ek5">
+            <objects>
+                <viewController storyboardIdentifier="PodcastsPlayerVC" id="YS0-yP-0W2" customClass="PodcastsPlayerVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ivs-fm-AtE">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="mainBackGround.png" id="hGL-Ag-Wnh">
+                                <rect key="frame" x="-3" y="0.0" width="325" height="562"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="aIJ-eO-HiR">
+                                <rect key="frame" x="20" y="20" width="280" height="270"/>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="Bng-ck-uuX">
+                                <rect key="frame" x="21" y="269" width="280" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="slider:" destination="YS0-yP-0W2" eventType="valueChanged" id="opx-Ye-Qcs"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="00:23:15/01:55:37" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8zg-q7-JMI">
+                                <rect key="frame" x="80" y="301" width="161" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rAa-cH-5P6">
+                                <rect key="frame" x="67" y="331" width="56" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="back15secImageButton.png" backgroundImage="buttonBackground.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back15secButton:" destination="YS0-yP-0W2" eventType="touchUpInside" id="kHY-aO-LJI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2t3-U9-5VV">
+                                <rect key="frame" x="198" y="331" width="56" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="nextImageButton.png" backgroundImage="buttonBackground.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextPodcastButton:" destination="YS0-yP-0W2" eventType="touchUpInside" id="fL4-5q-U2U"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gwM-GJ-Onm">
+                                <rect key="frame" x="134" y="331" width="56" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="pauseImageButton.png" backgroundImage="buttonBackground.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPauseButton:" destination="YS0-yP-0W2" eventType="touchUpInside" id="1Kj-t6-sWT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="32 current part title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pZU-uo-Mxw">
+                                <rect key="frame" x="20" y="465" width="280" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="By anyone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nOs-eP-pGN">
+                                <rect key="frame" x="27" y="509" width="266" height="16"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Podcast Title..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IuF-zo-nEn">
+                                <rect key="frame" x="20" y="490" width="280" height="18"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="anyLabel" destination="pZU-uo-Mxw" id="vAP-zT-rfE"/>
+                        <outlet property="autorLabel" destination="nOs-eP-pGN" id="Owd-Yr-QZj"/>
+                        <outlet property="back15secButtonOutlet" destination="rAa-cH-5P6" id="bHB-lc-EH4"/>
+                        <outlet property="backgroundImageView" destination="hGL-Ag-Wnh" id="nNw-Se-oEq"/>
+                        <outlet property="nextButtonOutlet" destination="2t3-U9-5VV" id="BsL-XR-swu"/>
+                        <outlet property="pauseButtonOutlet" destination="gwM-GJ-Onm" id="UTX-KN-nAb"/>
+                        <outlet property="podcastImageView" destination="aIJ-eO-HiR" id="Miu-u2-pvE"/>
+                        <outlet property="podcastTitleLabel" destination="IuF-zo-nEn" id="EGJ-ny-2wK"/>
+                        <outlet property="sliderOutlet" destination="Bng-ck-uuX" id="dEa-wr-tOn"/>
+                        <outlet property="timingLabel" destination="8zg-q7-JMI" id="rWF-gN-2Pl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Spg-JZ-Vx4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1313" y="43"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oU4-HV-c2P">
+            <objects>
+                <navigationController id="hkT-kj-cx0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zt1-n1-H9F">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QWa-yG-8vR" kind="relationship" relationship="rootViewController" id="L2G-Ba-P0K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bx1-Tu-yQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-350" y="43"/>
+        </scene>
+        <!--Add PodcastVC-->
+        <scene sceneID="Uxq-2f-LTd">
+            <objects>
+                <viewController storyboardIdentifier="AddPodcastVC" id="JNw-ak-Qn9" customClass="AddPodcastVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C0s-LW-cPR">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" id="8k3-1o-7Cp">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Add Podcast" id="tOr-rF-FLm">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Mfo-dO-p4t">
+                                            <connections>
+                                                <action selector="cancel:" destination="JNw-ak-Qn9" id="ZdR-qF-Xrb"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Add" id="GsZ-CV-E2j">
+                                            <connections>
+                                                <action selector="addThisPokcast:" destination="JNw-ak-Qn9" id="SzG-z6-M1Y"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="RSS-stream" minimumFontSize="17" id="OQd-vS-Dvr">
+                                <rect key="frame" x="11" y="87" width="228" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="search"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eIa-a6-ZkH">
+                                <rect key="frame" x="247" y="83" width="64" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="search:" destination="JNw-ak-Qn9" eventType="touchUpInside" id="eKq-qx-pon"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="ejM-fc-aHF">
+                                <rect key="frame" x="20" y="141" width="106" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N3z-D4-UZD">
+                                <rect key="frame" x="10" y="281" width="300" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="title" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Orz-EX-7CS">
+                                <rect key="frame" x="139" y="141" width="171" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3kR-W2-21w">
+                                <rect key="frame" x="11" y="249" width="299" height="279"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" id="kCF-nU-9Ec">
+                                <rect key="frame" x="139" y="188" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="kCF-nU-9Ec" id="rtg-QA-2wf"/>
+                        <outlet property="descriptionTextView" destination="3kR-W2-21w" id="Xiy-EQ-76i"/>
+                        <outlet property="imageView" destination="ejM-fc-aHF" id="MNs-oV-EZ5"/>
+                        <outlet property="textField" destination="OQd-vS-Dvr" id="Ilq-Jt-eJv"/>
+                        <outlet property="titleLabel" destination="Orz-EX-7CS" id="eLF-yt-QBy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RmM-f6-36f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-14" y="-649"/>
+        </scene>
+        <!--PodcastVC - Podcast Groups-->
+        <scene sceneID="WiP-6G-tv9">
+            <objects>
+                <tableViewController id="QWa-yG-8vR" customClass="PodcastVC" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="104" sectionHeaderHeight="22" sectionFooterHeight="22" id="6Jw-wG-aGK">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PodcastCell" rowHeight="104" id="VUE-AK-Obf" customClass="PodcastCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="104"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="103"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="yYW-Si-QQz">
+                                            <rect key="frame" x="7" y="8" width="88" height="88"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fwd-rc-68d">
+                                            <rect key="frame" x="103" y="8" width="212" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7gq-mp-MGW">
+                                            <rect key="frame" x="98" y="38" width="217" height="58"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="descriptionPodcastLabel" destination="7gq-mp-MGW" id="6NN-95-e8N"/>
+                                    <outlet property="imageViewPodcast" destination="yYW-Si-QQz" id="ksm-aF-c3R"/>
+                                    <outlet property="titleLabelPodcastLabel" destination="Fwd-rc-68d" id="HW4-D6-Sir"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QWa-yG-8vR" id="0IC-vl-ZGf"/>
+                            <outlet property="delegate" destination="QWa-yG-8vR" id="Pt6-Jh-9pb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Podcast Groups" id="kTt-o9-577"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EJO-dx-4Bc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="84" y="43"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="back15secImageButton.png" width="26" height="28"/>
+        <image name="buttonBackground.png" width="56" height="56"/>
+        <image name="mainBackGround.png" width="320" height="480"/>
+        <image name="nextImageButton.png" width="24" height="16"/>
+        <image name="pauseImageButton.png" width="16" height="24"/>
+    </resources>
+    <classes>
+        <class className="AddPodcastVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddPodcastVC.h"/>
+            <relationships>
+                <relationship kind="action" name="addThisPokcast:"/>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="search:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="DetailVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailVC.h"/>
+            <relationships>
+                <relationship kind="action" name="player:"/>
+                <relationship kind="outlet" name="authorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playerLabel" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="textViewDescription" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="updatedLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="DownloadVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DownloadVC.h"/>
+        </class>
+        <class className="PodcastCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PodcastCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="descriptionPodcastLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="imageViewPodcast" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabelPodcastLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PodcastItemCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PodcastItemCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imgView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleOutlet" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="updatedOutlet" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PodcastItemsVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PodcastItemsVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="urlPodcast" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PodcastVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PodcastVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="PodcastsPlayerVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PodcastsPlayerVC.h"/>
+            <relationships>
+                <relationship kind="action" name="back15secButton:"/>
+                <relationship kind="action" name="nextPodcastButton:"/>
+                <relationship kind="action" name="playPauseButton:"/>
+                <relationship kind="action" name="slider:"/>
+                <relationship kind="outlet" name="anyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="autorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="back15secButtonOutlet" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="backgroundImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nextButtonOutlet" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pauseButtonOutlet" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="podcastImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="podcastTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sliderOutlet" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="timingLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
