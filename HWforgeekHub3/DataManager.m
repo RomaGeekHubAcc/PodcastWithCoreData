@@ -40,21 +40,17 @@
 - (NSArray*)getAllPodcasts {
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"CDPodcast" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:[[CDPodcast class] description] inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entityDescription];
     NSError *error;
     NSArray *fetchedPodcast = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     return fetchedPodcast;
-} 
+}
 
 - (void)insertNewObject:(Podcast*)podcast {
     
-    NSError *error;
-    
-    _managedObjectContext = [self managedObjectContext];
-    
-    CDPodcast *newPodcast = [CDPodcast podcastWithLink:podcast.link context:_managedObjectContext];
+    CDPodcast *newPodcast = [CDPodcast podcastWithLink:podcast.link context:self.managedObjectContext];
     
     newPodcast.podcastTitle = podcast.podcastTitle;
     newPodcast.podcastDescription = podcast.podcastDescription;
@@ -67,26 +63,16 @@
         newItem.itemDescription = podcastItem.itemDescription;
         newItem.itemAuthhor = podcastItem.autor;
         newItem.itemImage = podcastItem.imageStr;
-        newItem.itemPubDate = nil;
+        newItem.itemPubDate = podcastItem.pubDate;
         newItem.podcast = newPodcast;
         
         for (NSString *audioFile in podcastItem.audioFilePathArray) {
             CDAudioFile *cdAudioFile = [CDAudioFile cdAudioFileWithAudioFileURL:audioFile context:_managedObjectContext];
             cdAudioFile.podcastItem = newItem;
-            
-            [_managedObjectContext save:&error];
-            if (![_managedObjectContext save:&error]) {
-                NSLog(@" --  insertNewAudioFile error — %@", error);
-            }
-        }
-        
-        [_managedObjectContext save:&error];
-        if (![_managedObjectContext save:&error]) {
-            NSLog(@"--  insertNewItem error — %@", error);
         }
     }
     
-    [_managedObjectContext save:&error];
+    NSError *error = nil;
     if (![_managedObjectContext save:&error]) {
         NSLog(@"--  insertNewObj error — %@", error);
     }

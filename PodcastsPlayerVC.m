@@ -11,13 +11,17 @@
 #import "UIImage+RoundedCorner.h"
 #import "PodcastItem.h"
 #import <AVFoundation/AVFoundation.h>
-#import "AudioPlayer.h"
 #import "CDPodcastItem.h"
 #import "CDAudioFile.h"
 
+
 @interface PodcastsPlayerVC ()
+{
+    NSArray *cdAudioFiles;
+}
 
 @end
+
 
 @implementation PodcastsPlayerVC
 
@@ -45,8 +49,11 @@
     [sliderOutlet setValue:0];
     sliderOutlet.minimumValue = 0;
     
+    cdAudioFiles = [_podcastItem.audioFiles allObjects];
+    CDAudioFile *cdAudioFile = [cdAudioFiles objectAtIndex:0];
+    NSString *audioFilePath = cdAudioFile.audioFileURL;
     
-    player = [[AVPlayer alloc]initWithURL:[NSURL URLWithString:[[_podcastItem.audioFiles allObjects] objectAtIndex:0]]];
+    player = [[AVPlayer alloc]initWithURL:[NSURL URLWithString:audioFilePath]];
     
     podcastNumber = 0;
     if ([_podcastItem.audioFiles allObjects].count == 1) {
@@ -84,6 +91,8 @@
         duration = CMTimeGetSeconds(player.currentItem.duration);
         timingLabel.text = [NSString stringWithFormat:@"00:00:00/%@", [self convertTime:duration]];
     }
+    
+    [self playPauseButton:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -155,9 +164,13 @@
     [timer invalidate];
     timer = nil;
     podcastNumber++;
-    player = [[AVPlayer alloc]initWithURL:[NSURL URLWithString:[[_podcastItem.audioFiles allObjects] objectAtIndex:podcastNumber]]];
+    
+    CDAudioFile *cdAudioFile = [cdAudioFiles objectAtIndex:podcastNumber];
+    NSString *audioFilePath = cdAudioFile.audioFileURL;
+    
+    player = [[AVPlayer alloc]initWithURL:[NSURL URLWithString:audioFilePath]];
     [player play];
-    if (_podcastItem.audioFiles.count == podcastNumber) {
+    if (cdAudioFiles.count == podcastNumber) {
         nextButtonOutlet.enabled = NO;
     }
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(showCurrentTimeChanging) userInfo:nil repeats:YES];

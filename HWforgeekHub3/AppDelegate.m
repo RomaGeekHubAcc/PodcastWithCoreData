@@ -21,21 +21,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 //    [self setupAppearance];
-    _dbManager = [[DBManager alloc]init];
-    
-    FMDatabase *db = [_dbManager getDatabase];
-    FMResultSet *resultSet = [db executeQuery:@"SELECT COUNT(*) FROM podcast"];
-    int totalCount = 0;
-    if ([resultSet next]) {
-        totalCount = [resultSet intForColumnIndex:0];
-    }
-    
-    if (totalCount >0) {
-        _arrayWithPodcasts = [Podcast getArrayWithPodcastsFromDB];
-    }
-    else {
-        [self setPodcastsToDatabaseIfEmpty];
-    }
 
     return YES;
 }
@@ -83,66 +68,6 @@
     [[UISlider appearance] setMaximumTrackImage:maxImage forState:UIControlStateNormal];
     [[UISlider appearance] setMinimumTrackImage:minImage forState:UIControlStateNormal];
     [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateNormal];
-}
-
-- (void)fillArrayWithPodcasts {
-    
-    Podcast *p1 = [[Podcast alloc]init];
-    p1.podcastImage = @"http://s.rpod.ru/data/users_avatars/00/00/00/22/37/ava_ava_1153664433.jpg";
-    p1.podcastTitle = @"Автомобили";
-    p1.podcastDescription = @"Всё о том, что ездит по земле! Автомобили, трактора, квадроциклы, мотоциклы и мопеды - все, на чем можно ездить!";
-    p1.podcastUrl = PODCASTS_OTHER;
-    
-    Podcast *p2 = [[Podcast alloc]init];
-    p2.podcastImage = @"http://s.rpod.ru/data/users_avatars/00/00/00/01/00/ava_ava_1152288228.jpg";
-    p2.podcastTitle = @"Cпорт";
-    p2.podcastDescription = @"";
-    p2.podcastUrl = PODCASTS_SPORT;
-    
-    Podcast *p3 = [[Podcast alloc]init];
-    p3.podcastImage = @"http://s.rpod.ru/data/users_avatars/00/00/03/47/40/ava_ava_1269430346.jpg";
-    p3.podcastTitle = @"2Гига";
-    p3.podcastDescription = @"Регулярный подкаст о наиболее интересных моментах в IT-индустрии и мире за прошедшую неделю.";
-    p3.podcastUrl = PODCAST_GADGET;
-    
-    Podcast *p4 = [[Podcast alloc]init];
-    p4.podcastImage = @"http://s.rpod.ru/data/users_avatars/00/00/04/24/25/238801_dinner_with_candles_in_the_gar.jpg";
-    p4.podcastTitle = @"Поздний ужин с Kate";
-    p4.podcastDescription = @"";
-    p4.podcastUrl = PODCASTS_ABOUT_MEMORY;
-    
-    Podcast *p5 = [[Podcast alloc]init];
-    p5.podcastImage = @"http://s.rpod.ru/data/users_avatars/00/00/02/13/67/images.jpg";
-    p5.podcastTitle = @"Football Show";
-    p5.podcastDescription = @"";
-    p5.podcastUrl = PODCAST_FOOTBALL;
-    _arrayWithPodcasts = [NSArray arrayWithObjects:p1, p2, p3,p4, p5, nil];
-    
-    for (Podcast*podcast in _arrayWithPodcasts) {
-        [[DataManager sharedDataManager] insertNewObject:podcast];
-    }
-}
-
-
-- (void)setPodcastsToDatabaseIfEmpty {
-    
-    FMDatabase *db = [_dbManager getDatabase];
-    
-    [self fillArrayWithPodcasts];
-    
-    for (Podcast *podcast in _arrayWithPodcasts) {
-        NSMutableArray *podcAr = [NSMutableArray array];
-        [podcAr addObject:podcast.podcastTitle];
-        [podcAr addObject:podcast.podcastUrl];
-        [podcAr addObject:podcast.podcastImage];
-        [podcAr addObject:podcast.podcastDescription];
-        
-        BOOL isInsertOk = [db executeUpdate:@"INSERT INTO podcast (name, url, artwork_url, description) VALUES(?,?,?,?)"withArgumentsInArray:podcAr];
-        
-        if(!isInsertOk) {
-            NSLog(@"-- Failed to Insert - %@", [db lastError]);
-        }
-    }
 }
 
 

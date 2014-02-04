@@ -58,7 +58,6 @@
 		84B9F162181D0D8C00C7475F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B9F161181D0D8C00C7475F /* SystemConfiguration.framework */; };
 		84B9F164181D0D9500C7475F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B9F163181D0D9500C7475F /* CoreFoundation.framework */; };
 		84D160A71857838D00CCACB6 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D160A61857838D00CCACB6 /* DBManager.m */; };
-		84D1B17A183A931B00113470 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D1B179183A931B00113470 /* AudioPlayer.m */; };
 		84D1B17C183A935200113470 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D1B17B183A935200113470 /* AVFoundation.framework */; };
 		84D1B17F183A95C100113470 /* Gorillas-King of the bongo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84D1B17E183A95C100113470 /* Gorillas-King of the bongo.mp3 */; };
 		84DAC7B7186F6546007F2348 /* CDModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84DAC7B5186F6546007F2348 /* CDModel.xcdatamodeld */; };
@@ -72,6 +71,7 @@
 		84EB45E11872DC1500089C22 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EB45E01872DC1500089C22 /* CoreData.framework */; };
 		84EB45E41875AAEE00089C22 /* Downloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB45E31875AAEE00089C22 /* Downloader.m */; };
 		84EB45E71875B3CF00089C22 /* AddPodcastVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB45E61875B3CF00089C22 /* AddPodcastVC.m */; };
+		84F495741896820000680BC3 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F49573189681FF00680BC3 /* Utilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,8 +151,6 @@
 		84B9F163181D0D9500C7475F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		84D160A51857838D00CCACB6 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		84D160A61857838D00CCACB6 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
-		84D1B178183A931B00113470 /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
-		84D1B179183A931B00113470 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
 		84D1B17B183A935200113470 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		84D1B17E183A95C100113470 /* Gorillas-King of the bongo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Gorillas-King of the bongo.mp3"; sourceTree = SOURCE_ROOT; };
 		84DAC7B6186F6546007F2348 /* CDModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CDModel.xcdatamodel; sourceTree = "<group>"; };
@@ -172,6 +170,8 @@
 		84EB45E31875AAEE00089C22 /* Downloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Downloader.m; sourceTree = "<group>"; };
 		84EB45E51875B3CF00089C22 /* AddPodcastVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPodcastVC.h; sourceTree = "<group>"; };
 		84EB45E61875B3CF00089C22 /* AddPodcastVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPodcastVC.m; sourceTree = "<group>"; };
+		84F49572189681FF00680BC3 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		84F49573189681FF00680BC3 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,7 +290,6 @@
 				8426CDA2183780AC006CD4FA /* Defines.h */,
 				8471CE15184E422D004C0B51 /* fmdb */,
 				84D1B17D183A94B300113470 /* Audio */,
-				84D1B177183A92EA00113470 /* Settings */,
 				846317CB182E6997004543BF /* PodcastImages */,
 				84DF35A81822E4410039162D /* Model */,
 				84B9F157181D013100C7475F /* Views */,
@@ -299,6 +298,8 @@
 				84B9F139181D000300C7475F /* AppDelegate.m */,
 				84B9F141181D000300C7475F /* MainStoryboard.storyboard */,
 				84B9F130181D000300C7475F /* Supporting Files */,
+				84F49572189681FF00680BC3 /* Utilities.h */,
+				84F49573189681FF00680BC3 /* Utilities.m */,
 			);
 			path = HWforgeekHub3;
 			sourceTree = "<group>";
@@ -356,15 +357,6 @@
 				840A78F7185BA8880007F1B0 /* PodcastCell.m */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		84D1B177183A92EA00113470 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				84D1B178183A931B00113470 /* AudioPlayer.h */,
-				84D1B179183A931B00113470 /* AudioPlayer.m */,
-			);
-			name = Settings;
 			sourceTree = "<group>";
 		};
 		84D1B17D183A94B300113470 /* Audio */ = {
@@ -509,7 +501,6 @@
 				8426CDAE183781A7006CD4FA /* PodcastsPlayerVC.m in Sources */,
 				8426CDB1183781BE006CD4FA /* DetailVC.m in Sources */,
 				8426CDBC1837AB9F006CD4FA /* DownloadVC.m in Sources */,
-				84D1B17A183A931B00113470 /* AudioPlayer.m in Sources */,
 				8471CE21184E4264004C0B51 /* FMResultSet.m in Sources */,
 				8471CE23184E4264004C0B51 /* FMDatabaseQueue.m in Sources */,
 				8471CE24184E4264004C0B51 /* FMDatabasePool.m in Sources */,
@@ -526,6 +517,7 @@
 				84DAC7C3186F7727007F2348 /* DataManager.m in Sources */,
 				84EB45E41875AAEE00089C22 /* Downloader.m in Sources */,
 				84EB45E71875B3CF00089C22 /* AddPodcastVC.m in Sources */,
+				84F495741896820000680BC3 /* Utilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,4 +14,5 @@ dependencies: \
   /Users/admin/Documents/iOS_progs/HWforgeekHub3/DetailVC.h \
   /Users/admin/Documents/iOS_progs/HWforgeekHub3/XMLReader.h \
   /Users/admin/Documents/iOS_progs/HWforgeekHub3/HWforgeekHub3/CDPodcast.h \
-  /Users/admin/Documents/iOS_progs/HWforgeekHub3/HWforgeekHub3/CDPodcastItem.h
+  /Users/admin/Documents/iOS_progs/HWforgeekHub3/HWforgeekHub3/CDPodcastItem.h \
+  /Users/admin/Documents/iOS_progs/HWforgeekHub3/HWforgeekHub3/Utilities.h

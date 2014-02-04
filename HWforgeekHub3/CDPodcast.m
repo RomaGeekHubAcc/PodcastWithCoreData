@@ -23,7 +23,7 @@
     
     CDPodcast *newPodcast;
     
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"CDPodcast" inManagedObjectContext:context];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:[[CDPodcast class] description] inManagedObjectContext:context];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
     [fetchRequest setEntity:entityDescription];
     

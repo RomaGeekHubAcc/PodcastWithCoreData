@@ -4,10 +4,11 @@
 <dict>
 	<key>FoundWorkingCopyPaths</key>
 	<array>
+		<string>/Users/admin/Documents/iOS_progs/HWforgeekHub3</string>
 		<string>/Users/admin</string>
 	</array>
 	<key>LastWorkingCopyScanDate</key>
-	<date>2014-01-11T10:38:33Z</date>
+	<date>2014-02-04T16:49:11Z</date>
 	<key>MissingFilePaths</key>
 	<array>
 		<string>/Users/admin/Documents/iOS_progs/HWforgeekHub3/build/Debug-iphoneos/HWforgeekHub3.app</string>

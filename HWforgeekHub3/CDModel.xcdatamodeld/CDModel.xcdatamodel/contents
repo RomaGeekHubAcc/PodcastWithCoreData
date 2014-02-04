@@ -23,7 +23,7 @@
     </entity>
     <elements>
         <element name="CDAudioFile" positionX="-981" positionY="360" width="128" height="75"/>
-        <element name="CDPodcast" positionX="-1307" positionY="180" width="128" height="120"/>
-        <element name="CDPodcastItem" positionX="-1143" positionY="234" width="128" height="165"/>
+        <element name="CDPodcast" positionX="-1332" positionY="231" width="128" height="120"/>
+        <element name="CDPodcastItem" positionX="-1152" positionY="234" width="128" height="165"/>
     </elements>
 </model>

@@ -11,6 +11,7 @@
 #import "XMLReader.h"
 #import "PodcastItem.h"
 #import "Podcast.h"
+#import "Utilities.h"
 
 @implementation XMLReader
 
@@ -133,6 +134,12 @@
         if (!_currentPubDate) {
             _currentPubDate = [[NSMutableString alloc]init];
         }
+        
+        NSRange range = [string rangeOfString:@"\n"];
+        
+        if (range.location == 0) {
+            return;
+        }
 		[_currentPubDate appendString:string];
     }
     else if ([_currentElement isEqualToString:DESCRIPTION_]) {
@@ -183,7 +190,16 @@
         PodcastItem *contentList = [[PodcastItem alloc]init];
         
         contentList.title = _currentTitle;
-        contentList.pubDate = _currentPubDate;
+        
+        NSString *format = @"ccc, d MMM yyyy H:m:s zzz";
+        
+        
+        NSLog(@"pub date -> %@",_currentPubDate);
+        // Thu, 12 Sep 2013 12:51:00 GMT
+        NSDate *date = [Utilities dateFromString:_currentPubDate withFormat:format];
+        NSLog(@"---Date -> %@", date);
+        contentList.pubDate = date;
+        
         contentList.itemDescription = _currentDescription;
         contentList.imageStr = _currentImageStr;
         contentList.urlOfImage = _currentURL;

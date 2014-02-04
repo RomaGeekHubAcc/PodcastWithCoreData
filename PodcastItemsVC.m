@@ -20,6 +20,7 @@
 #import "Defines.h"
 #import "CDPodcast.h"
 #import "CDPodcastItem.h"
+#import "Utilities.h"
 
 @interface PodcastItemsVC ()
 
@@ -93,7 +94,7 @@
     CDPodcastItem *list = [_arrayWithCDPodcastItems objectAtIndex:indexPath.row];
     
     cell.titleOutlet.text = list.itemTitle;
-//    cell.updatedOutlet.text = list.itemPubDate;
+    cell.updatedOutlet.text = [Utilities humanReadableFromDate:list.itemPubDate];
     
     NSURL *url = [NSURL URLWithString:list.itemImage];
     [cell.imgView setImageWithURL:url];
@@ -112,98 +113,6 @@
     
     [self.navigationController pushViewController:detailVC animated:YES];
 }
-
-//#pragma mark - UITextFieldDelegate
-//
-//- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-//    textField.backgroundColor = [UIColor colorWithRed:220.0f/255.0f green:220.0f/255.0f blue:220.0f/255.0f alpha:1.0f];
-//    return YES;
-//}
-//
-//- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
-//    textField.backgroundColor = [UIColor whiteColor];
-//    return YES;
-//}
-//
-//
-//- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-//    _textFieldContent = _textField.text;
-//    
-//    BOOL netStatus = [PodcastItemsVC networkStatus];
-//    NSLog(@"- Network Status - %d", netStatus);
-//    if (!netStatus) {
-//        alertView = [[UIAlertView alloc]initWithTitle:nil message:@"Sorry, network connection is disable. Connect and try again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-//        alertView.tag = 1;
-//        [alertView show];
-//    }
-//    
-//    [textField resignFirstResponder];
-//    
-//    _activityIndicator. hidden = NO;
-//    [_activityIndicator startAnimating];
-//    [self.view bringSubviewToFront:_activityIndicator];
-//    
-//#warning тут я задаю адресу, за якою завантажувати подкаст
-//    [self loadDataFromPath:PODCASTS_OTHER];
-//    
-//    return YES;
-//}
-//
-//#pragma mark - Network Status
-//+ (NetworkStatus)networkStatus {
-//    static Reachability *reach = nil;
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        reach = [Reachability reachabilityForInternetConnection];
-//    });
-//    
-//    NSLog(@"----Internet status - %@", reach);
-//    
-//    return [reach currentReachabilityStatus];
-//}
-//
-//
-//#pragma mark - NSURLConnectionDelegate
-//- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-//    [_rssData appendData:data];
-//}
-//
-//- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-//    NSLog(@"---Error - %@", error);
-//}
-//
-//- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-//    NSString *result = [[NSString alloc] initWithData:_rssData encoding:NSUTF8StringEncoding];
-//    NSLog(@"-----Result - %@",result);
-//    XMLReader *reader = [[XMLReader alloc]init];
-//    _podcast.arrayPodcastItems = [reader parseXMLwithData:_rssData];
-//       
-//    if (_podcast.arrayPodcastItems.count > 0) {
-//        _tableView.hidden = NO;
-//        [_activityIndicator stopAnimating];
-//        _activityIndicator.hidden = YES;
-//        [_tableView reloadData];
-//    }
-//}
-//
-//
-//#pragma mark - Others
-//
-//- (void)loadDataFromPath:(NSString *)path {
-//    
-//    NSURL *url = [NSURL URLWithString:path];
-//    
-//    NSURLRequest *request=[NSURLRequest requestWithURL:url
-//                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
-//                                       timeoutInterval:60.0];
-//    
-//    NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:request
-//                                                                   delegate:self];
-//    if (theConnection) {
-//         self.rssData = [NSMutableData data];
-//    }
-//    
-//}
 
 
 @end
